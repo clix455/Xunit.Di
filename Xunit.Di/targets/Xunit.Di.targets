@@ -1,0 +1,18 @@
+﻿<Project>
+  <PropertyGroup>
+    <RootNamespace Condition="'$(RootNamespace)' == ''">$(AssemblyName)</RootNamespace>
+    <SetupNamespace Condition="'$(SetupNamespace)' == ''">$(RootNamespace)</SetupNamespace>
+    <DiSetupTypeFullname>$(SetupNamespace).Setup</DiSetupTypeFullname>
+    <EnableXunitDependencyInjection Condition="'$(EnableXunitDependencyInjection)' == ''">true</EnableXunitDependencyInjection>
+  </PropertyGroup>
+  <ItemGroup>
+    <AssemblyAttribute Include="Xunit.TestFrameworkAttribute" Condition="'$(EnableXunitDependencyInjection)' == 'true'">
+      <_Parameter1>Xunit.Di.DiXunitTestFramework</_Parameter1>
+      <_Parameter2>Xunit.Di</_Parameter2>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="Xunit.Di.DiSetupTypeAttribute" Condition="'$(EnableXunitDependencyInjection)' == 'true'">
+      <_Parameter1>$(DiSetupTypeFullname)</_Parameter1>
+      <_Parameter2>$(AssemblyName)</_Parameter2>
+    </AssemblyAttribute>
+  </ItemGroup>
+</Project>
