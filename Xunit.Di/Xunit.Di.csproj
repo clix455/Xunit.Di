@@ -4,7 +4,7 @@
     <Nullable>enable</Nullable>
     <IsPackable>true</IsPackable>
     <PackageId>Xunit.Di</PackageId>
-    <Version>2.4.1</Version>
+    <Version>2.4.2</Version>
     <Authors>Chengwei Li</Authors>
     <Company>Clix</Company>
     <PackageTags>xunit; dependency; injection; automation; test; unit</PackageTags>    

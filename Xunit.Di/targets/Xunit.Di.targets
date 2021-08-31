@@ -2,6 +2,7 @@
   <PropertyGroup>
     <RootNamespace Condition="'$(RootNamespace)' == ''">$(AssemblyName)</RootNamespace>
     <SetupNamespace Condition="'$(SetupNamespace)' == ''">$(RootNamespace)</SetupNamespace>
+    <SetupAssembly Condition="'$(SetupAssembly)' == ''">$(SetupNamespace)</SetupAssembly>
     <DiSetupTypeFullname>$(SetupNamespace).Setup</DiSetupTypeFullname>
     <EnableXunitDi Condition="'$(EnableXunitDi)' == ''">true</EnableXunitDi>
   </PropertyGroup>
@@ -12,7 +13,7 @@
     </AssemblyAttribute>
     <AssemblyAttribute Include="Xunit.Di.DiSetupTypeAttribute" Condition="'$(EnableXunitDi)' == 'true'">
       <_Parameter1>$(DiSetupTypeFullname)</_Parameter1>
-      <_Parameter2>$(AssemblyName)</_Parameter2>
+      <_Parameter2>$(SetupAssembly)</_Parameter2>
     </AssemblyAttribute>
   </ItemGroup>
 </Project>
