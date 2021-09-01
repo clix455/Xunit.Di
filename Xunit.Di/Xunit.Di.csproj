@@ -1,11 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>net5.0;netcoreapp3.1</TargetFrameworks>
     <Nullable>enable</Nullable>
     <IsPackable>true</IsPackable>
     <PackageId>Xunit.Di</PackageId>
-    <Version>2.4.3</Version>
-    <Authors>Chengwei Li</Authors>
+    <Version>2.4.4</Version>
+    <Authors>Clix</Authors>
     <Company>Clix</Company>
     <PackageTags>xunit; dependency; injection; automation; test; unit</PackageTags>    
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -13,6 +13,13 @@
     <PackageProjectUrl>https://github.com/clix455/Xunit.Di</PackageProjectUrl>
     <RepositoryType />
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>
+Xunit test framework can be extended to support dependency injection, which allows us to achieve Inversion of Control (IoC) between test classes and their dependencies. 
+
+We use Xunit dependency injection addresses these problems through:
+- Configure supporting infrastructure, such as database, storage
+- Injection of services into the constructor of the test classes as well as the service classes. The framework takes on the responsibility of creating instances of dependency and disposing of them when test scopes end.
+</Description>
   </PropertyGroup>
   <ItemGroup Label="Packaging">
     <Content Include="targets\$(PackageId).targets" PackagePath="build\$(PackageId).targets" />
