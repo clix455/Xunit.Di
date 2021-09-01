@@ -21,10 +21,11 @@
 
 ```
 All these properties are optional, when not present, the default values would be used.
+
 Configuration|Default |Values
--------------|--------|------
-AssemblyName||The name of the final output assembly after the project is built.
-RootNamespace||The root namespace to use when you name an embedded resource. This namespace is part of the embedded resource manifest name. 
+-------------|-------------|------------
+AssemblyName|test project assembly name|The name of the final output assembly after the project is built.
+RootNamespace|test project namespace|The root namespace to use when you name an embedded resource. This namespace is part of the embedded resource manifest name. 
 SetupNamespace|$(RootNamespace)|The namespace where you should find the ***Setup.cs*** class, set this value when using the ***Setup.cs*** from a different library project.
 SetupAssembly|$(AssemblyName)|The assembly where you should find the ***Setup.cs*** class, set this value when using the ***Setup.cs*** from a different library project.
 EnableXunitDi|true|Set it to false when you need to temporarily disable the xunit.di
