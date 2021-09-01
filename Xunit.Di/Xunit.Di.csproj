@@ -4,7 +4,7 @@
     <Nullable>enable</Nullable>
     <IsPackable>true</IsPackable>
     <PackageId>Xunit.Di</PackageId>
-    <Version>2.4.1</Version>
+    <Version>2.4.3</Version>
     <Authors>Chengwei Li</Authors>
     <Company>Clix</Company>
     <PackageTags>xunit; dependency; injection; automation; test; unit</PackageTags>    
@@ -18,12 +18,8 @@
     <Content Include="targets\$(PackageId).targets" PackagePath="build\$(PackageId).targets" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="5.0.0"/>
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0"/>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0"/>
-    <PackageReference Include="coverlet.collector" Version="1.2.0"/>
-    <PackageReference Include="xunit" Version="2.4.1"/>
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1"/>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
+    <PackageReference Include="xunit" Version="2.4.1" />
   </ItemGroup>
   <ItemGroup>
     <None Update="targets\Xunit.DependencyInjection.targets">

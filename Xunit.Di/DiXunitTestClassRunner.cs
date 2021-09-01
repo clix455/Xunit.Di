@@ -46,7 +46,16 @@ namespace Xunit.Di
                 if (TryGetConstructorArgument(constructor, i, parameterInfo, out var parameterValue))
                     parameterValues[i] = parameterValue!;
                 else
-                    parameterValues[i] = _serviceScope.ServiceProvider.GetService(parameterInfo.ParameterType)!;
+                {
+                    try
+                    {
+                        parameterValues[i] = _serviceScope.ServiceProvider.GetService(parameterInfo.ParameterType)!;
+                    }
+                    catch (Exception exception)
+                    {
+                        Aggregator.Add(exception);
+                    }
+                }
             }
 
             return parameterValues;

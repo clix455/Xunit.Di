@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 using Xunit.Abstractions;
 using Xunit.Sdk;
 
@@ -12,10 +13,23 @@ namespace Xunit.Di
 
         protected override ITestFrameworkExecutor CreateExecutor(AssemblyName assemblyName)
         {
-            var serviceProvider = DiLoader.GetServiceProvider(assemblyName);
-            return serviceProvider == null 
-                ? base.CreateExecutor(assemblyName) 
-                : new DiXunitTestFrameworkExecutor(serviceProvider, assemblyName, SourceInformationProvider, DiagnosticMessageSink);
+            IServiceProvider? serviceProvider = default;
+            Exception? setupException = default;
+            try
+            {
+                serviceProvider = DiLoader.GetServiceProvider(assemblyName);
+            }
+            catch (Exception exception)
+            {
+                setupException = exception;
+            }
+
+            var frameworkExecutor = new DiXunitTestFrameworkExecutor(
+                serviceProvider, assemblyName, SourceInformationProvider, DiagnosticMessageSink);
+
+            if(setupException != null)
+                frameworkExecutor.Aggregator.Add(setupException);
+            return frameworkExecutor;
         }
     }
 }

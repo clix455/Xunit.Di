@@ -28,8 +28,8 @@ namespace Xunit.Di
         /// <inheritdoc/>
         protected override async Task BeforeTestCollectionFinishedAsync()
         {
-            await base.BeforeTestCollectionFinishedAsync().ConfigureAwait(false);
             _serviceScope.Dispose();
+            await base.BeforeTestCollectionFinishedAsync().ConfigureAwait(false);
         }
 
         /// <inheritdoc />
