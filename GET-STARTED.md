@@ -74,7 +74,7 @@ All these properties are optional, when not present, the default values would be
             Assert.NotEmpty(value);
         }
 ```
-*note:* The TextReaderService is a sample service class defined in the test project.
+**[^1]:** The TextReaderService is a sample service class defined in the test project.
 
 ## Sample usage
 Find the sample usages from this test project [Xunit.Di.Tests](Xunit.Di.Tests)
