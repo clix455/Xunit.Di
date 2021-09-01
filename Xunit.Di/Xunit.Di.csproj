@@ -1,11 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>net5.0;netcoreapp3.1</TargetFrameworks>
     <Nullable>enable</Nullable>
     <IsPackable>true</IsPackable>
     <PackageId>Xunit.Di</PackageId>
-    <Version>2.4.3</Version>
-    <Authors>Chengwei Li</Authors>
+    <Version>2.4.4</Version>
+    <Authors>Clix</Authors>
     <Company>Clix</Company>
     <PackageTags>xunit; dependency; injection; automation; test; unit</PackageTags>    
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
