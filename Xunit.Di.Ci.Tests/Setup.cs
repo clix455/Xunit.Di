@@ -2,6 +2,8 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Xunit.Abstractions;
+using Xunit.Sdk;
 
 namespace Xunit.Di.Ci.Tests
 {
@@ -21,6 +23,9 @@ namespace Xunit.Di.Ci.Tests
             ConfigureServices((context, services) =>
             {
                 services.AddSingleton<TextReaderService>();
+                services.AddLogging(loggingBuilder => loggingBuilder.AddFileLog());
+                services.AddSingleton<ITestOutputHelper, TestOutputHelper>();
+                services.AddLogging(builder => builder.AddTestOutputLog());
             });
         }
     }
