@@ -25,7 +25,6 @@ namespace Xunit.Di.Ci.Tests
                 services.AddSingleton<TextReaderService>();
                 services.AddLogging(loggingBuilder => loggingBuilder.AddFileLog());
                 services.AddSingleton<ITestOutputHelper, TestOutputHelper>();
-                services.AddLogging(builder => builder.AddTestOutputLog());
             });
         }
     }
