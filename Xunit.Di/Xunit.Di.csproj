@@ -14,12 +14,12 @@
     <RepositoryType />
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>
-Xunit test framework can be extended to support dependency injection, which allows us to achieve Inversion of Control (IoC) between test classes and their dependencies. 
+      Xunit.Di is an extension of xUnit test framework, built to support xUnit dependency injection, 
+      which allows us to achieve Inversion of Control (IoC) between test classes and their dependencies. 
+      The Xunit.Di takes on the responsibility of creating instances of dependency and disposing of them when test scopes end.
 
-We use Xunit dependency injection addresses these problems through:
-- Configure supporting infrastructure, such as database, storage
-- Injection of services into the constructor of the test classes as well as the service classes. The framework takes on the responsibility of creating instances of dependency and disposing of them when test scopes end.
-</Description>
+      Installing this package installs xunit, Microsoft.Extensions.Hosting and their dependencies.
+    </Description>
   </PropertyGroup>
   <ItemGroup Label="Packaging">
     <Content Include="targets\$(PackageId).targets" PackagePath="build\$(PackageId).targets" />
@@ -29,7 +29,7 @@ We use Xunit dependency injection addresses these problems through:
     <PackageReference Include="xunit" Version="2.4.1" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="targets\Xunit.DependencyInjection.targets">
+    <None Update="targets\Xunit.Di.targets">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

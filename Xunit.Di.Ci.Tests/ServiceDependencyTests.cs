@@ -35,7 +35,7 @@ namespace Xunit.Di.Ci.Tests
         {
             get
             {
-                _logger.LogWarning("Get reader from text reader service.");
+                _logger.LogInformation("Get reader from text reader service.");
                 return _reader;
             }
         }

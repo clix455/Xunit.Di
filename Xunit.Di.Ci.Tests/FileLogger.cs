@@ -42,14 +42,14 @@ namespace Xunit.Di.Ci.Tests
             if (string.IsNullOrEmpty(message))
                 return;
 
-            message = $"{logLevel}: {message}";
+            message = $"[{DateTime.UtcNow.ToString("O")}] {message}";
 
             if (exception != null)
             {
                 message += Environment.NewLine + Environment.NewLine + exception;
             }
 
-            using var writer = TextWriter.Synchronized(new StreamWriter("application.tests.log", true));
+            using var writer = TextWriter.Synchronized(new StreamWriter("xunit.di.ci.tests.log", true));
             writer.WriteLine($"{_name}: {message}");
         }
     }

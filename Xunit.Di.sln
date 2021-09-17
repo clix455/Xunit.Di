@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xunit.Di", "Xunit.Di\Xunit.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xunit.Di.Tests", "Xunit.Di.Tests\Xunit.Di.Tests.csproj", "{0D9E3B3F-12B5-4F7B-855D-AF7D27296119}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xunit.Di.Ci.Tests", "Xunit.Di.Ci.Tests\Xunit.Di.Ci.Tests.csproj", "{A94F1CB5-EB11-4F6E-A2E3-5637C0EA0CD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xunit.Di.Ci.Tests", "Xunit.Di.Ci.Tests\Xunit.Di.Ci.Tests.csproj", "{A94F1CB5-EB11-4F6E-A2E3-5637C0EA0CD7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
