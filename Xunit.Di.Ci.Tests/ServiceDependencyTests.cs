@@ -1,10 +1,11 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Xunit;
 
-namespace Xunit.Di.Tests
+namespace Xunit.Di.Ci.Tests
 {
     public class ServiceDependencyTests
     {
@@ -26,13 +27,23 @@ namespace Xunit.Di.Tests
 
     public class TextReaderService : IDisposable
     {
+        private readonly ILogger<TextReaderService> _logger;
         private bool disposedValue;
+        private readonly TextReader _reader;
 
-        public TextReader Reader { get; }
-
-        public TextReaderService()
+        public TextReader Reader
         {
-            Reader = new StringReader(nameof(TextReaderFixture));
+            get
+            {
+                _logger.LogInformation("Get reader from text reader service.");
+                return _reader;
+            }
+        }
+
+        public TextReaderService(ILogger<TextReaderService> logger)
+        {
+            _logger = logger;
+            _reader = new StringReader(nameof(TextReaderService));
         }
 
         protected virtual void Dispose(bool disposing)

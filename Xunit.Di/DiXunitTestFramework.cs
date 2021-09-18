@@ -5,31 +5,35 @@ using Xunit.Sdk;
 
 namespace Xunit.Di
 {
-    public sealed class DiXunitTestFramework: XunitTestFramework
+    /// <summary>
+    /// The implementation of <see cref="T:Xunit.Abstractions.ITestFramework" /> that supports
+    /// executing xunit tests with dependency injection.
+    /// </summary>
+    public sealed class DiXunitTestFramework : XunitTestFramework
     {
+        /// <inheritdoc/>
         public DiXunitTestFramework(IMessageSink messageSink) : base(messageSink)
         {
         }
 
+        internal ExceptionAggregator Aggregator { get; set; } = new ExceptionAggregator();
+        
+        /// <inheritdoc/>
         protected override ITestFrameworkExecutor CreateExecutor(AssemblyName assemblyName)
         {
-            IServiceProvider? serviceProvider = default;
-            Exception? setupException = default;
             try
             {
-                serviceProvider = DiLoader.GetServiceProvider(assemblyName);
+                var serviceProvider = DiLoader.GetServiceProvider(assemblyName);
+                if (serviceProvider != null)
+                    return new DiXunitTestFrameworkExecutor(
+                        serviceProvider, assemblyName, SourceInformationProvider, DiagnosticMessageSink);
             }
             catch (Exception exception)
             {
-                setupException = exception;
+                Aggregator.Add(exception);
             }
 
-            var frameworkExecutor = new DiXunitTestFrameworkExecutor(
-                serviceProvider, assemblyName, SourceInformationProvider, DiagnosticMessageSink);
-
-            if(setupException != null)
-                frameworkExecutor.Aggregator.Add(setupException);
-            return frameworkExecutor;
+            return base.CreateExecutor(assemblyName);
         }
     }
 }
