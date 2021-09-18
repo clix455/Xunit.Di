@@ -6,7 +6,7 @@ namespace Xunit.Di
 {
     public static class DiLoader
     {
-        public static IServiceProvider? GetServiceProvider(AssemblyName assemblyName)
+        public static IServiceProvider GetServiceProvider(AssemblyName assemblyName)
         {
             var thisAssembly = Assembly.Load(assemblyName);
             var setupTypeAtrAttribute = thisAssembly.GetCustomAttribute<DiSetupTypeAttribute>();
