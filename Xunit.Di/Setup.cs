@@ -13,7 +13,7 @@ namespace Xunit.Di
         private readonly IList<Action<HostBuilderContext, IServiceCollection>> _configureServicesActions
             = new List<Action<HostBuilderContext, IServiceCollection>>();
         private readonly IHostBuilder _defaultBuilder;
-        private IServiceProvider? _services;
+        private IServiceProvider _services;
         private bool _built = false;
 
         public Setup()

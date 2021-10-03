@@ -44,12 +44,12 @@ namespace Xunit.Di
             {
                 var parameterInfo = parameters[i];
                 if (TryGetConstructorArgument(constructor, i, parameterInfo, out var parameterValue))
-                    parameterValues[i] = parameterValue!;
+                    parameterValues[i] = parameterValue;
                 else
                 {
                     try
                     {
-                        parameterValues[i] = _serviceScope.ServiceProvider.GetService(parameterInfo.ParameterType)!;
+                        parameterValues[i] = _serviceScope.ServiceProvider.GetService(parameterInfo.ParameterType);
                     }
                     catch (Exception exception)
                     {

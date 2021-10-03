@@ -1,25 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net5.0;netcoreapp3.1</TargetFrameworks>
-    <Nullable>enable</Nullable>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <IsPackable>true</IsPackable>
     <PackageId>Xunit.Di</PackageId>
-    <Version>2.4.4</Version>
-    <Authors>Clix</Authors>
+    <Version>2.4.5</Version>
+    <Authors>Clix Contributors</Authors>
     <Company>Clix</Company>
-    <PackageTags>xunit; dependency; injection; automation; test; unit</PackageTags>    
+    <PackageTags>xunit; dependency; injection; automation; test; unit; xunit.di</PackageTags>    
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/clix455/Xunit.Di</RepositoryUrl>
     <PackageProjectUrl>https://github.com/clix455/Xunit.Di</PackageProjectUrl>
     <RepositoryType />
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Description>
-Xunit test framework can be extended to support dependency injection, which allows us to achieve Inversion of Control (IoC) between test classes and their dependencies. 
+    <Description>Xunit.Di is an extension of xUnit testing framework, built to support xUnit dependency injection, which allows us to achieve Inversion of Control (IoC) between test classes and their dependencies. The Xunit.Di takes on the responsibility of creating instances of dependency and disposing of them when test scopes end.
 
-We use Xunit dependency injection addresses these problems through:
-- Configure supporting infrastructure, such as database, storage
-- Injection of services into the constructor of the test classes as well as the service classes. The framework takes on the responsibility of creating instances of dependency and disposing of them when test scopes end.
-</Description>
+Installing this package installs xunit, Microsoft.Extensions.Hosting and their dependencies.</Description>
   </PropertyGroup>
   <ItemGroup Label="Packaging">
     <Content Include="targets\$(PackageId).targets" PackagePath="build\$(PackageId).targets" />
@@ -29,7 +24,7 @@ We use Xunit dependency injection addresses these problems through:
     <PackageReference Include="xunit" Version="2.4.1" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="targets\Xunit.DependencyInjection.targets">
+    <None Update="targets\Xunit.Di.targets">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

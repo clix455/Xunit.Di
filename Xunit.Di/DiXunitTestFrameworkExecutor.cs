@@ -8,9 +8,9 @@ namespace Xunit.Di
 {
     public sealed class DiXunitTestFrameworkExecutor : XunitTestFrameworkExecutor
     {
-        private readonly IServiceProvider? _serviceProvider;
+        private readonly IServiceProvider _serviceProvider;
 
-        public DiXunitTestFrameworkExecutor(IServiceProvider? serviceProvider, AssemblyName assemblyName,
+        public DiXunitTestFrameworkExecutor(IServiceProvider serviceProvider, AssemblyName assemblyName,
             ISourceInformationProvider sourceInformationProvider, IMessageSink diagnosticMessageSink)
             : base(assemblyName, sourceInformationProvider, diagnosticMessageSink) =>
             _serviceProvider = serviceProvider;

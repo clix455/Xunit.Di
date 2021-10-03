@@ -32,7 +32,7 @@ namespace Xunit.Di.Tests
 
         public TextReaderService()
         {
-            Reader = new StringReader(nameof(TextReaderFixture));
+            Reader = new StringReader(nameof(TextReaderService));
         }
 
         protected virtual void Dispose(bool disposing)
