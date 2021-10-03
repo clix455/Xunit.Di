@@ -9,9 +9,9 @@ namespace Xunit.Di
 {
     public class DiXunitTestAssemblyRunner : XunitTestAssemblyRunner
     {
-        private readonly IServiceProvider? _provider;
+        private readonly IServiceProvider _provider;
 
-        public DiXunitTestAssemblyRunner(IServiceProvider? provider,
+        public DiXunitTestAssemblyRunner(IServiceProvider provider,
             ITestAssembly testAssembly,
             IEnumerable<IXunitTestCase> testCases,
             IMessageSink diagnosticMessageSink,
