@@ -20,8 +20,8 @@ Installing this package installs xunit, Microsoft.Extensions.Hosting and their d
     <Content Include="targets\$(PackageId).targets" PackagePath="build\$(PackageId).targets" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
-    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+    <PackageReference Include="xunit" Version="2.5.0" />
   </ItemGroup>
   <ItemGroup>
     <None Update="targets\Xunit.Di.targets">
